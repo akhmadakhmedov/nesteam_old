@@ -6,6 +6,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'genre', GenreViewSet)
+router.register(r'api-studio', StudioViewSet)
 
 
 urlpatterns = [
@@ -13,7 +14,8 @@ urlpatterns = [
     #path('games/', games_list, name='games'),
     #path('create-game', CreateGameAPIView.as_view(), name='create-game'),
     path('games/', GameView.as_view(), name='games'),
-    path('studios', StudiosListAPIView.as_view()),
+    path('game-create/', GameCreateAPIView.as_view(), name='games'),
+    #path('studios/', StudiosListAPIView.as_view()),
     path('users/', include('usersapp.urls')),
     path('', include(router.urls)),
 ]

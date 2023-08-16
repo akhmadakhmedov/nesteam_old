@@ -3,7 +3,7 @@ from django.db import models
 
 class Genre(models.Model):
     name = models.CharField(max_length=55)
-    desctiption = models.TextField()
+    description = models.TextField()
 
 
 class Game(models.Model):
@@ -13,6 +13,12 @@ class Game(models.Model):
         to=Genre,
         on_delete=models.PROTECT,
         null=True
+    )
+    studio = models.ForeignKey(
+        to='Studio',
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True
     )
 
     def __str__(self):
