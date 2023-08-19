@@ -1,6 +1,8 @@
 from django.db import models
 from games.models import Game
 from django.contrib.auth.models import User
+
+
 class GameCollection(models.Model):
     name = models.CharField(max_length=55)
     games_list = models.ManyToManyField(
